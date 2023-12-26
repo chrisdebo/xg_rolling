@@ -43,3 +43,6 @@ teamname = 'Union-Berlin'
 df = get_team_data(teamname, save_as_json=True)
 X, Y_for, Y_ag = process_team_data(df)
 create_team_plot(teamname, X, Y_for, Y_ag, save_as_png=True)
+```
+## Thanks
+This addition gives proper credit to sonofacorner.com for the help with visualization.
