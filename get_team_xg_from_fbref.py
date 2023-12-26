@@ -27,4 +27,3 @@ df = pd.concat([df_2223, df_2324], axis=0).reset_index(drop=True)
 today_date = get_today_date()
 file_path = os.path.join('data', teamname + '_' + today_date + '.json')
 df.to_json(file_path, orient='records')
-
