@@ -53,5 +53,11 @@ for team in teams_info:
     create_team_plot(team, X, Y_for, Y_ag, save_as_png=True)
 ```
 
+## How to add a new team
+- teamname is the name of the team as it appears in the URL on fbref.com
+- fbref_team_id is the number that appears in the URL on fbref.com
+- teamlogonumber is the number that appears in the imageurl on fotmob.com
+- color ist the color from https://teamcolorcodes.com/bundesliga-team-color-codes/
+
 ## Thanks
 This addition gives proper credit to sonofacorner.com for the help with visualization.

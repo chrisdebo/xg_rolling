@@ -9,12 +9,12 @@ from highlight_text import fig_text
 
 # Dictionary with team information
 teams_info = {
-    'Union-Berlin': {'fbref_team_id': '7a41008f', 'teamlogonumber': '8149', 'color1': '#EB1923', 'color2': '#A9A9A9'},
-    'Bayer-Leverkusen': {'fbref_team_id': 'c7a9f859', 'teamlogonumber': '8178', 'color1': '#E32221', 'color2': '#A9A9A9'},
-    'Bayern-Munich': {'fbref_team_id': '054efa67', 'teamlogonumber': '9823', 'color1': '#DC052D', 'color2': '#A9A9A9'},
-    'Dortmund': {'fbref_team_id': 'add600ae', 'teamlogonumber': '9789', 'color1': '#FFD700', 'color2': '#A9A9A9'},
-    'Stuttgart': {'fbref_team_id': '598bc722', 'teamlogonumber': '10269', 'color1': '#E32219', 'color2': '#A9A9A9'},
-    'Bochum': {'fbref_team_id': 'b42c6323', 'teamlogonumber': '9911', 'color1': '#005CA9', 'color2': '#A9A9A9'},
+    'Union-Berlin': {'fbref_team_id': '7a41008f', 'teamlogonumber': '8149', 'color1': '#EB1923'},
+    'Bayer-Leverkusen': {'fbref_team_id': 'c7a9f859', 'teamlogonumber': '8178', 'color1': '#E32221'},
+    'Bayern-Munich': {'fbref_team_id': '054efa67', 'teamlogonumber': '9823', 'color1': '#DC052D'},
+    'Dortmund': {'fbref_team_id': 'add600ae', 'teamlogonumber': '9789', 'color1': '#FFD700'},
+    'Stuttgart': {'fbref_team_id': '598bc722', 'teamlogonumber': '10269', 'color1': '#E32219'},
+    'Bochum': {'fbref_team_id': 'b42c6323', 'teamlogonumber': '9911', 'color1': '#005CA9'},
     # Add more teams here in the same format
 }
 
@@ -72,7 +72,7 @@ def process_team_data(df):
 def create_team_plot(teamname, X, Y_for, Y_ag, save_as_png=False):
     teamlogonumber = teams_info[teamname]['teamlogonumber']
     color1 = teams_info[teamname]['color1']
-    color2 = teams_info[teamname]['color2']
+    color2 = '#A9A9A9'
 
     fig, ax = plt.subplots(figsize=(5, 2.5), dpi=200, facecolor="#EFE9E6")
     ax.set_facecolor("#EFE9E6")
@@ -96,7 +96,8 @@ def create_team_plot(teamname, X, Y_for, Y_ag, save_as_png=False):
         text="Bundesliga Season Change",
         size=6,
         color="grey",
-        arrowprops=dict(arrowstyle="->", shrinkA=0, shrinkB=5, color="grey", linewidth=0.75, connectionstyle="angle3,angleA=50,angleB=-30")
+        arrowprops=dict(arrowstyle="->", shrinkA=0, shrinkB=5, color="grey", linewidth=0.75, connectionstyle="angle3,angleA=50,angleB=-30"),
+        zorder=4
     )
 
     ax.fill_between(X, Y_ag, Y_for, where=Y_for > Y_ag, interpolate=True, alpha=0.85, zorder=3, color=line_1[0].get_color())
